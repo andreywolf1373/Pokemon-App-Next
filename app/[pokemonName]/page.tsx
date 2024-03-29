@@ -6,8 +6,13 @@ import { PokemonImage } from "@/components/pokemon-image";
 import { Progress } from "@/components/ui/progress";
 import { changeToUpperCase } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
 import Loader from "@/components/ui/Loader";
+
+interface PokemonStat {
+  base_stat: number;
+  effort: number;
+  stat: { name: string; url: string };
+}
 
 export default function PokemonPage({
   params,
@@ -26,8 +31,7 @@ export default function PokemonPage({
     initialData: {},
   });
 
-  if (!pokemonObject || !pokemonObject === undefined)
-    return <h2>NO DATA BLYAT</h2>;
+  if (!pokemonObject) return <h2>No data found! </h2>;
 
   if (isError) return <h2> There is an error fetching data! </h2>;
 
@@ -46,9 +50,11 @@ export default function PokemonPage({
       </div>
       <h3>Weight: {pokemonObject.weight}</h3>
       <div className="flex-col">
-        {pokemonObject?.stats?.map((statObject: any) => {
+        {isLoading && <Loader />}
+        {pokemonObject?.stats?.map((statObject: PokemonStat) => {
           const statName = changeToUpperCase(statObject.stat.name);
           const statValue = statObject.base_stat;
+
           return (
             <div className="flex items-stretch w-96" key={statName}>
               <h3 className="p-3 w-2/4">

@@ -8,12 +8,11 @@ import Link from "next/link";
 
 interface PokemonCardProps {
   name: string;
-  url: string;
 }
 
 // <PokemonCard name="pikachu" />
 
-export function PokemonCard({ name, url }: PokemonCardProps) {
+export function PokemonCard({ name }: PokemonCardProps) {
   return (
     <Link
       href={name}

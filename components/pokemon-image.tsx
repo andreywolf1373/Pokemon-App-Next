@@ -1,7 +1,12 @@
 "use client";
 import Image from "next/image";
 
-export function PokemonImage({ image, name }: { image: string; name: string }) {
+interface PokemonImage {
+  image: string;
+  name: string;
+}
+
+export function PokemonImage({ image, name }: PokemonImage) {
   return (
     <Image
       src={image}

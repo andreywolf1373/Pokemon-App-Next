@@ -3,18 +3,20 @@ import { PokemonCard } from "./pokemon-card";
 import { useState } from "react";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
-import { useQuery } from "@tanstack/react-query";
-import { getPokemon } from "@/lib/pokemonAPI";
+
+interface Pokemon {
+  name: string;
+}
 
 interface PokemonGridProps {
-  pokemonList: any;
+  pokemonList: Pokemon[];
 }
 
 export function PokemonGrid({ pokemonList }: PokemonGridProps) {
   const [searchText, setSearchText] = useState("");
 
-  const searchFilter = (pokemonList: any) => {
-    return pokemonList.filter((pokemon: any) =>
+  const searchFilter = (pokemonList: Pokemon[]) => {
+    return pokemonList.filter((pokemon: Pokemon) =>
       pokemon.name.toLowerCase().includes(searchText.toLowerCase())
     );
   };
@@ -40,13 +42,9 @@ export function PokemonGrid({ pokemonList }: PokemonGridProps) {
       </div>
 
       <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-6 lg:text-left">
-        {filteredPokemonList.map((pokemon: any) => {
+        {filteredPokemonList.map((pokemon: Pokemon) => {
           return (
-            <PokemonCard
-              name={pokemon.name}
-              key={pokemon.name + "Card"}
-              url={pokemon.url}
-            />
+            <PokemonCard name={pokemon.name} key={pokemon.name + "Card"} />
           );
         })}
       </div>
