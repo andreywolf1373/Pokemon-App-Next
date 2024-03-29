@@ -31,7 +31,7 @@ export function PokemonGrid({ pokemonList }: PokemonGridProps) {
             onChange={(e) => setSearchText(e.target.value)}
           />
         </div>
-        <h3 className="text-3xl pt-12 pb-6 text-center">PokemonList</h3>
+        <h3 className="text-3xl pt-12 pb-6 text-center">Pokemon List</h3>
       </div>
 
       <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-6 lg:text-left">
