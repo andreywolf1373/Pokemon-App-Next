@@ -7,15 +7,6 @@ import { Progress } from "@/components/ui/progress";
 import { changeToUpperCase } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-// localhost:3000/pikachu
-
-// pokemonName
-
-// pokemonName = "pikachu" -> show the Pikachu page
-
-// Vercel CLI -> We can fully deploy our application using the command line
-// If things are breaking for you (for any reason), go check out how to
-// deploy from github.
 
 export default function PokemonPage({
   params,
