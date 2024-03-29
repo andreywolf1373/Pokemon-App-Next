@@ -1,4 +1,3 @@
-"use client";
 import { PokemonImage } from "@/lib/types";
 import Image from "next/image";
 

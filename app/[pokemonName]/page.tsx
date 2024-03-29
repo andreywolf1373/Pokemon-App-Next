@@ -26,7 +26,7 @@ export default function PokemonPage({
     initialData: {},
   });
 
-  if (!pokemonObject) return <h2>No data found! </h2>;
+  if (!pokemonObject) return <Loader />;
 
   if (isError) return <h2> There is an error fetching data! </h2>;
 
