@@ -3,14 +3,7 @@ import { PokemonCard } from "./pokemon-card";
 import { useState } from "react";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
-
-interface Pokemon {
-  name: string;
-}
-
-interface PokemonGridProps {
-  pokemonList: Pokemon[];
-}
+import { Pokemon, PokemonGridProps } from "@/lib/types";
 
 export function PokemonGrid({ pokemonList }: PokemonGridProps) {
   const [searchText, setSearchText] = useState("");

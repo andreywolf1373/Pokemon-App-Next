@@ -1,10 +1,6 @@
 "use client";
+import { PokemonImage } from "@/lib/types";
 import Image from "next/image";
-
-interface PokemonImage {
-  image: string;
-  name: string;
-}
 
 export function PokemonImage({ image, name }: PokemonImage) {
   return (

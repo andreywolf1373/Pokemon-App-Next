@@ -1,14 +1,11 @@
 "use client";
 import { getPokemon } from "@/lib/pokemonAPI";
+import { PokemonCardProps } from "@/lib/types";
 import { changeToUpperCase } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 
 // pikachu, -> localhost:3000/pikachu
-
-interface PokemonCardProps {
-  name: string;
-}
 
 // <PokemonCard name="pikachu" />
 

@@ -7,12 +7,7 @@ import { Progress } from "@/components/ui/progress";
 import { changeToUpperCase } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "@/components/ui/Loader";
-
-interface PokemonStat {
-  base_stat: number;
-  effort: number;
-  stat: { name: string; url: string };
-}
+import { PokemonStat } from "@/lib/types";
 
 export default function PokemonPage({
   params,
