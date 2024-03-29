@@ -8,8 +8,7 @@ export function PokemonImage({ image, name }: { image: string; name: string }) {
       alt={"Picture of " + name}
       priority
       fill
-      style={{ objectFit: "contain" }}
-      className="transition-opacity opacity-0 duration-[2s]"
+      className="transition-opacity opacity-0 duration-[2s] max-w-xs max-h-"
       onLoadingComplete={(image) => image.classList.remove("opacity-0")}
     />
   );

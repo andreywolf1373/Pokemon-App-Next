@@ -27,6 +27,9 @@ export default function PokemonPage({
 
   if (isLoading) return <h2>Loading information...</h2>;
 
+  if (!pokemonObject || !pokemonObject === undefined)
+    return <h2>NO DATA BLYAT</h2>;
+
   if (isError) return <h2> There is an error fetching data! </h2>;
 
   return (
@@ -39,13 +42,15 @@ export default function PokemonPage({
         style={{ position: "relative", width: "200px", height: "200px" }}
       >
         <PokemonImage
-          image={pokemonObject.sprites.other["official-artwork"].front_default}
+          image={
+            pokemonObject?.sprites?.other["official-artwork"].front_default
+          }
           name={pokemonName}
         />
       </div>
       <h3>Weight: {pokemonObject.weight}</h3>
       <div className="flex-col">
-        {pokemonObject.stats.map((statObject: any) => {
+        {pokemonObject?.stats?.map((statObject: any) => {
           const statName = changeToUpperCase(statObject.stat.name);
           const statValue = statObject.base_stat;
           return (
