@@ -5,6 +5,7 @@ import { PokemonCard } from "@/components/pokemon-card";
 import Image from "next/image";
 import { getPokemon, getPokemonList } from "@/lib/pokemonAPI";
 import { useQuery } from "@tanstack/react-query";
+import Loader from "@/components/ui/Loader";
 
 export default function Home() {
   const {
@@ -16,6 +17,8 @@ export default function Home() {
     queryFn: getPokemonList,
     initialData: [],
   });
+
+  console.log(isLoading);
 
   return <PokemonGrid pokemonList={pokemonList} />;
 }

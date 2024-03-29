@@ -7,6 +7,7 @@ import { Progress } from "@/components/ui/progress";
 import { changeToUpperCase } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import Loader from "@/components/ui/Loader";
 
 export default function PokemonPage({
   params,
@@ -25,8 +26,6 @@ export default function PokemonPage({
     initialData: {},
   });
 
-  if (isLoading) return <h2>Loading information...</h2>;
-
   if (!pokemonObject || !pokemonObject === undefined)
     return <h2>NO DATA BLYAT</h2>;
 
@@ -37,10 +36,7 @@ export default function PokemonPage({
       <h1 className="text-4xl text-bold pt-4">
         {pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1)}
       </h1>
-      <div
-        className="m-4"
-        style={{ position: "relative", width: "200px", height: "200px" }}
-      >
+      <div className="m-4 relative w-52 h-52">
         <PokemonImage
           image={
             pokemonObject?.sprites?.other["official-artwork"].front_default
@@ -54,11 +50,7 @@ export default function PokemonPage({
           const statName = changeToUpperCase(statObject.stat.name);
           const statValue = statObject.base_stat;
           return (
-            <div
-              className="flex items-stretch"
-              style={{ width: "500px" }}
-              key={statName}
-            >
+            <div className="flex items-stretch w-96" key={statName}>
               <h3 className="p-3 w-2/4">
                 {statName}: {statValue}
               </h3>
