@@ -26,13 +26,18 @@ interface PokemonStatInfo {
   url: string;
 }
 
-interface PokemonAbilityInfo {
-  name: string;
-  url: string;
-}
-
 export interface PokemonAbility {
   ability: PokemonAbilityInfo;
   is_hidden: false;
   slot: number;
+}
+
+export interface PokemonTypes {
+  slot: number;
+  type: PokemonAbilityInfo;
+}
+
+interface PokemonAbilityInfo {
+  name: string;
+  url: string;
 }
