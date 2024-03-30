@@ -7,7 +7,8 @@ import { Progress } from "@/components/ui/progress";
 import { changeToUpperCase } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "@/components/ui/Loader";
-import { PokemonStat } from "@/lib/types";
+import { PokemonAbility, PokemonStat } from "@/lib/types";
+// import PokemonAbilitiesItem from "@/components/pokemon-ability";
 
 export default function PokemonPage({
   params,
@@ -26,6 +27,8 @@ export default function PokemonPage({
     initialData: {},
   });
 
+  console.log(pokemonObject);
+
   if (!pokemonObject) return <Loader />;
 
   if (isError) return <h2> There is an error fetching data! </h2>;
@@ -43,6 +46,17 @@ export default function PokemonPage({
           name={pokemonName}
         />
       </div>
+      <h3>
+        Pokemon type:
+        {pokemonObject &&
+          pokemonObject?.types?.map((pokemonItem: any) => (
+            <div key={pokemonItem.type.name}>
+              <p className="text-center mt-3">
+                {changeToUpperCase(pokemonItem?.type?.name)}
+              </p>
+            </div>
+          ))}
+      </h3>
       <h3>Weight: {pokemonObject.weight}</h3>
       <div className="flex-col">
         {isLoading && <Loader />}
@@ -60,6 +74,8 @@ export default function PokemonPage({
           );
         })}
       </div>
+      <h3>Abillities</h3>
+      <h3>TODO POKEMON ABILLITY</h3>
     </>
   );
 }

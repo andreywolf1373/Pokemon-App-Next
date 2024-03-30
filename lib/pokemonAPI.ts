@@ -8,8 +8,14 @@ export async function getPokemonList() {
   return data.results;
 }
 
-export async function getPokemon(url: any) {
+export async function getPokemon(url: string) {
   const response = await fetch(POKEMON_API + "pokemon/" + url);
+  const data = await response.json();
+  return data;
+}
+
+export async function getPokemonAbilityInfo(url: string) {
+  const response = await fetch(url);
   const data = await response.json();
   return data;
 }
