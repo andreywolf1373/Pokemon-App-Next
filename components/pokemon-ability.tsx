@@ -1,25 +1,17 @@
 // "use client";
 
-// import { getPokemonAbilityInfo } from "@/lib/pokemonAPI";
-// import { PokemonAbility } from "@/lib/types";
-// import { changeToUpperCase } from "@/lib/utils";
-// import { useQuery } from "@tanstack/react-query";
+import { getPokemonAbilityInfo } from "@/lib/pokemonAPI";
+import { PokemonAbility } from "@/lib/types";
+import { changeToUpperCase } from "@/lib/utils";
+import { useQuery } from "@tanstack/react-query";
 
-// function PokemonAbilitiesItem({ ability }: PokemonAbility) {
-//   const abilityName = ability.ability.name;
+interface Props {
+  pokemonAbility: PokemonAbility;
+}
 
-//   const abilityUrl = ability.ability.url;
+function PokemonAbilitiesItem({ pokemonAbility }: Props) {
+  const name = pokemonAbility.ability.name;
+  return <p> {changeToUpperCase(name)}</p>;
+}
 
-//   const { data } = useQuery({
-//     queryKey: ["pokemonAbility"],
-//     queryFn: () => getPokemonAbilityInfo(abilityUrl),
-//   });
-
-//   return (
-//     <div>
-//       <p>{changeToUpperCase(abilityName)}</p>
-//     </div>
-//   );
-// }
-
-// export default PokemonAbilitiesItem;
+export default PokemonAbilitiesItem;
