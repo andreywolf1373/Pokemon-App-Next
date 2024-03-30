@@ -7,8 +7,9 @@ import { Progress } from "@/components/ui/progress";
 import { changeToUpperCase } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "@/components/ui/Loader";
-import { PokemonAbility, PokemonStat } from "@/lib/types";
-// import PokemonAbilitiesItem from "@/components/pokemon-ability";
+import { PokemonAbility, PokemonStat, PokemonTypes } from "@/lib/types";
+import PokemonType from "@/components/pokemon-type";
+import PokemonAbilitiesItem from "@/components/pokemon-ability";
 
 export default function PokemonPage({
   params,
@@ -24,15 +25,13 @@ export default function PokemonPage({
   } = useQuery({
     queryKey: ["pokemonData"],
     queryFn: () => getPokemon(pokemonName),
-    initialData: {},
   });
-
-  console.log(pokemonObject);
 
   if (!pokemonObject) return <Loader />;
 
   if (isError) return <h2> There is an error fetching data! </h2>;
 
+  console.log(pokemonObject.abilities);
   return (
     <>
       <h1 className="text-4xl text-bold pt-4">
@@ -49,12 +48,11 @@ export default function PokemonPage({
       <h3>
         Pokemon type:
         {pokemonObject &&
-          pokemonObject?.types?.map((pokemonItem: any) => (
-            <div key={pokemonItem.type.name}>
-              <p className="text-center mt-3">
-                {changeToUpperCase(pokemonItem?.type?.name)}
-              </p>
-            </div>
+          pokemonObject?.types?.map((pokemonItem: PokemonTypes) => (
+            <PokemonType
+              pokemonItem={pokemonItem}
+              key={pokemonItem.type.name}
+            />
           ))}
       </h3>
       <h3>Weight: {pokemonObject.weight}</h3>
@@ -74,8 +72,18 @@ export default function PokemonPage({
           );
         })}
       </div>
-      <h3>Abillities</h3>
-      <h3>TODO POKEMON ABILLITY</h3>
+      <div className="flex w-100 align-center mb-20 gap-32">
+        <h3>Abillities: </h3>
+        <div className="flex gap-10">
+          {pokemonObject &&
+            pokemonObject.abilities?.map((pokemonAbility: PokemonAbility) => (
+              <PokemonAbilitiesItem
+                pokemonAbility={pokemonAbility}
+                key={pokemonAbility.slot}
+              />
+            ))}
+        </div>
+      </div>
     </>
   );
 }
