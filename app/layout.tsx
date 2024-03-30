@@ -24,16 +24,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark">
-          <main className="flex min-h-screen flex-col items-center max-w-7xl gap-5 m-auto my-auto mt-20">
-            <div className="z-10 w-full max-w-5xl items-center justify-center text-sm lg:flex ">
-              <Link href="/">
-                <h2 className="text-2xl text-bold ">Pokemon Next App</h2>
-              </Link>
-            </div>
-            <Provider>{children}</Provider>
-          </main>
-        </ThemeProvider>
+        <main className="flex min-h-screen flex-col items-center max-w-7xl gap-5 m-auto my-auto mt-20">
+          <div className="z-10 w-full max-w-5xl items-center justify-center text-sm lg:flex ">
+            <Link href="/">
+              <h2 className="text-2xl text-bold ">Pokemon Next App</h2>
+            </Link>
+          </div>
+          <Provider>{children}</Provider>
+        </main>
       </body>
     </html>
   );

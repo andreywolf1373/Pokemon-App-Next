@@ -2,6 +2,8 @@ import { PokemonImage } from "@/lib/types";
 import Image from "next/image";
 
 export function PokemonImage({ image, name }: PokemonImage) {
+  if (!image || !name) return;
+
   return (
     <Image
       src={image}
