@@ -4,8 +4,9 @@ import { useState } from "react";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { Pokemon, PokemonGridProps } from "@/lib/types";
+import { Loader } from "lucide-react";
 
-export function PokemonGrid({ pokemonList }: PokemonGridProps) {
+export function PokemonGrid({ pokemonList, isLoading }: PokemonGridProps) {
   const [searchText, setSearchText] = useState("");
 
   const searchFilter = (pokemonList: Pokemon[]) => {
@@ -13,6 +14,7 @@ export function PokemonGrid({ pokemonList }: PokemonGridProps) {
       pokemon.name.toLowerCase().includes(searchText.toLowerCase())
     );
   };
+  if (isLoading) return <Loader />;
 
   const filteredPokemonList = searchFilter(pokemonList);
 

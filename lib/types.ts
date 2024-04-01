@@ -14,6 +14,7 @@ export interface Pokemon {
 
 export interface PokemonGridProps {
   pokemonList: Pokemon[];
+  isLoading: boolean;
 }
 
 export interface PokemonImage {

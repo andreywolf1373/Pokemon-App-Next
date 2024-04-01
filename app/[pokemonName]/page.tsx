@@ -31,7 +31,6 @@ export default function PokemonPage({
 
   if (isError) return <h2> There is an error fetching data! </h2>;
 
-  console.log(pokemonObject.abilities);
   return (
     <>
       <h1 className="text-4xl text-bold pt-4">
