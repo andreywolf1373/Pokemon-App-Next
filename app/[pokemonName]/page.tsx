@@ -63,9 +63,8 @@ export default function PokemonPage({
 
           return (
             <div className="flex items-stretch w-96" key={statName}>
-              <h3 className="p-3 w-2/4">
-                {statName}: {statValue}
-              </h3>
+              <h3 className="p-3 w-2/4">{statName}:</h3>
+              <h3 className="p-3">{statValue}</h3>
               <Progress className="w-2/4 m-auto" value={statValue} />
             </div>
           );
