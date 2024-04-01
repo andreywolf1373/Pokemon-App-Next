@@ -14,7 +14,6 @@ export default function Home() {
   } = useQuery({
     queryKey: ["pokemonList"],
     queryFn: getPokemonList,
-    initialData: [],
   });
 
   if (!pokemonList) return <Loader />;
