@@ -10,6 +10,7 @@ import Loader from "@/components/ui/Loader";
 import { PokemonAbility, PokemonStat, PokemonTypes } from "@/lib/types";
 import PokemonType from "@/components/pokemon-type";
 import PokemonAbilitiesItem from "@/components/pokemon-ability";
+import PokemonStats from "@/components/pokemon-stats";
 
 export default function PokemonPage({
   params,
@@ -57,18 +58,9 @@ export default function PokemonPage({
       <h3>Weight: {pokemonObject.weight}</h3>
       <div className="flex-col">
         {isLoading && <Loader />}
-        {pokemonObject?.stats?.map((statObject: PokemonStat) => {
-          const statName = changeToUpperCase(statObject.stat.name);
-          const statValue = statObject.base_stat;
-
-          return (
-            <div className="flex items-stretch w-96" key={statName}>
-              <h3 className="p-3 w-2/4">{statName}:</h3>
-              <h3 className="p-3">{statValue}</h3>
-              <Progress className="w-2/4 m-auto" value={statValue} />
-            </div>
-          );
-        })}
+        {pokemonObject?.stats?.map((statObject: PokemonStat) => (
+          <PokemonStats statObject={statObject} key={statObject.base_stat} />
+        ))}
       </div>
       <div className="flex w-100 align-center mb-20 gap-32">
         <h3>Abillities: </h3>

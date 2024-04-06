@@ -2,6 +2,7 @@ export interface PokemonStat {
   base_stat: number;
   effort: number;
   stat: PokemonStatInfo;
+  key: number;
 }
 
 export interface PokemonCardProps {
