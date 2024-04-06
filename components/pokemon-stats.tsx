@@ -1,6 +1,6 @@
 import { PokemonStat } from "@/lib/types";
 import { changeToUpperCase } from "@/lib/utils";
-import { Progress } from "@radix-ui/react-progress";
+import { Progress } from "./ui/progress";
 
 interface Props {
   statObject: PokemonStat;
