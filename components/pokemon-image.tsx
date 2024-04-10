@@ -1,7 +1,7 @@
-import { PokemonImage } from "@/lib/types";
+import { PokemonImageInterface } from "@/lib/types";
 import Image from "next/image";
 
-export function PokemonImage({ image, name }: PokemonImage) {
+export function PokemonImage({ image, name }: PokemonImageInterface) {
   if (!image || !name) return;
 
   return (

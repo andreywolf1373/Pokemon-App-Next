@@ -18,7 +18,7 @@ export interface PokemonGridProps {
   isLoading: boolean;
 }
 
-export interface PokemonImage {
+export interface PokemonImageInterface {
   image: string;
   name: string;
 }
@@ -42,4 +42,8 @@ export interface PokemonTypes {
 interface PokemonAbilityInfo {
   name: string;
   url: string;
+}
+
+export interface PokemonSpecies {
+  species: PokemonStatInfo;
 }

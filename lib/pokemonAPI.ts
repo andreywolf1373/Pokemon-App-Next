@@ -19,3 +19,9 @@ export async function getPokemonAbilityInfo(url: string) {
   const data = await response.json();
   return data;
 }
+
+export async function getPokemonSpecies(url: string) {
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
+}

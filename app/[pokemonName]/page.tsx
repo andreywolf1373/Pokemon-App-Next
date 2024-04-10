@@ -1,6 +1,6 @@
 "use client";
 
-import { getPokemon } from "@/lib/pokemonAPI";
+import { getPokemon, getPokemonSpecies } from "@/lib/pokemonAPI";
 import Image from "next/image";
 import { PokemonImage } from "@/components/pokemon-image";
 import { Progress } from "@/components/ui/progress";
@@ -50,6 +50,7 @@ export default function PokemonPage({
         {pokemonObject &&
           pokemonObject?.types?.map((pokemonItem: PokemonTypes) => (
             <PokemonType
+              pokemonObject={pokemonObject}
               pokemonItem={pokemonItem}
               key={pokemonItem.type.name}
             />
@@ -59,7 +60,7 @@ export default function PokemonPage({
       <div className="flex-col">
         {isLoading && <Loader />}
         {pokemonObject?.stats?.map((statObject: PokemonStat) => (
-          <PokemonStats statObject={statObject} key={statObject.base_stat} />
+          <PokemonStats statObject={statObject} key={statObject.stat.name} />
         ))}
       </div>
       <div className="flex w-100 align-center mb-20 gap-32">
