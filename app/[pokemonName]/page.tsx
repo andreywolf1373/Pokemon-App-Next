@@ -1,7 +1,5 @@
 "use client";
-
 import { getPokemon, getPokemonSpecies } from "@/lib/pokemonAPI";
-
 import { PokemonImage } from "@/components/pokemon-image";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "@/components/ui/Loader";

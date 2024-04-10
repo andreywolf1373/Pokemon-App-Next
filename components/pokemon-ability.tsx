@@ -3,7 +3,8 @@
 import { getPokemonAbilityInfo } from "@/lib/pokemonAPI";
 import { PokemonAbility } from "@/lib/types";
 import { changeToUpperCase } from "@/lib/utils";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import Link from "next/link";
 
 interface Props {
   pokemonAbility: PokemonAbility;
@@ -11,12 +12,19 @@ interface Props {
 
 function PokemonAbilitiesItem({ pokemonAbility }: Props) {
   const name = pokemonAbility.ability.name;
+  const queryClient = useQueryClient();
+  const pokemonName = queryClient.getQueryData(["pokemonData"]);
+
   const { data } = useQuery({
     queryKey: ["pokemonAbilityDetails"],
     queryFn: () => getPokemonAbilityInfo(pokemonAbility.ability.url),
-  }); // TODO pokemonAbilityDetails as modal?
+  }); // TODO pokemonAbilityDetails as modal/dynamic route  ?
 
-  return <p> {changeToUpperCase(name)}</p>;
+  return (
+    <Link href={`${(pokemonName as { name?: string })?.name}/${name}`}>
+      {changeToUpperCase(name)}
+    </Link>
+  );
 }
 
 export default PokemonAbilitiesItem;
