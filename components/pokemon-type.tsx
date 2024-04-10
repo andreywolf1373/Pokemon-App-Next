@@ -11,7 +11,7 @@ interface Props {
 
 function PokemonType({ pokemonItem, pokemonObject }: Props) {
   const { data: pokemonSpicies } = useQuery({
-    queryKey: ["pokemonSpecies"],
+    queryKey: ["pokemonType"],
     queryFn: () => getPokemonSpecies(pokemonObject.species.url),
   });
 
@@ -19,10 +19,10 @@ function PokemonType({ pokemonItem, pokemonObject }: Props) {
   const pokemonColor = pokemonSpicies?.color.name;
 
   return (
-    <div className="grid">
+    <div className="grid grid-cols-1">
       <p
         className="text-center mt-3 rounded-xl border-4 p-1"
-        style={{ color: pokemonColor, borderColor: pokemonColor }}
+        style={{ borderColor: pokemonColor }}
       >
         {changeToUpperCase(pokemonItem?.type?.name)}
       </p>

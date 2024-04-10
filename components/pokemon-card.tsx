@@ -1,7 +1,5 @@
-import { getPokemon } from "@/lib/pokemonAPI";
 import { PokemonCardProps } from "@/lib/types";
 import { changeToUpperCase } from "@/lib/utils";
-import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 
 export function PokemonCard({ name }: PokemonCardProps) {
