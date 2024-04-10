@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { Pokemon, PokemonGridProps } from "@/lib/types";
-import { Loader } from "lucide-react";
+import Loader from "@/components/ui/Loader";
 
 export function PokemonGrid({ pokemonList, isLoading }: PokemonGridProps) {
   const [searchText, setSearchText] = useState("");

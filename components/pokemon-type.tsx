@@ -2,7 +2,7 @@ import { getPokemonSpecies } from "@/lib/pokemonAPI";
 import { PokemonSpecies, PokemonTypes } from "@/lib/types";
 import { changeToUpperCase } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
-import { Loader } from "lucide-react";
+import Loader from "@/components/ui/Loader";
 
 interface Props {
   pokemonItem: PokemonTypes;
@@ -14,6 +14,8 @@ function PokemonType({ pokemonItem, pokemonObject }: Props) {
     queryKey: ["pokemonSpecies"],
     queryFn: () => getPokemonSpecies(pokemonObject.species.url),
   });
+
+  if (!pokemonSpicies) return <Loader />;
   const pokemonColor = pokemonSpicies?.color.name;
 
   return (

@@ -1,10 +1,8 @@
 "use client";
 
 import { getPokemon, getPokemonSpecies } from "@/lib/pokemonAPI";
-import Image from "next/image";
+
 import { PokemonImage } from "@/components/pokemon-image";
-import { Progress } from "@/components/ui/progress";
-import { changeToUpperCase } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "@/components/ui/Loader";
 import { PokemonAbility, PokemonStat, PokemonTypes } from "@/lib/types";
