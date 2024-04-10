@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className="flex  flex-col items-center gap-5 m-auto my-auto mt-5">
+        <main className="flex flex-col items-center gap-5 m-auto my-auto mt-5">
           <div className="z-10 items-center justify-center text-sm  ">
             <Link href="/">
               <h2 className="text-2xl text-bold ">Pokemon Next App</h2>

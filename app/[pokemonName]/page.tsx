@@ -61,7 +61,7 @@ export default function PokemonPage({
           <PokemonStats statObject={statObject} key={statObject.stat.name} />
         ))}
       </div>
-      <div className="flex w-100 align-center mb-20 gap-32">
+      <div className="flex align-center mb-20 gap-32">
         <h3>Abillities: </h3>
         <div className="flex gap-10">
           {pokemonObject &&
