@@ -10,7 +10,7 @@ function PokemonAbilityPage() {
   }>(["pokemonAbilityDetails"]);
   const text = data?.effect_entries[0]?.effect;
 
-  return <h1>{text}</h1>;
+  return <h1 className="w-1/2">{text}</h1>;
 }
 
 export default PokemonAbilityPage;
