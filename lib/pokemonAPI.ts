@@ -1,7 +1,5 @@
 const POKEMON_API = "https://pokeapi.co/api/v2/";
 
-// only name'n url for details
-
 export async function getPokemonList() {
   const response = await fetch(POKEMON_API + "pokemon?limit=100&offset=0");
   const data = await response.json();
