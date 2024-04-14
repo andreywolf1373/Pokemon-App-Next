@@ -18,7 +18,7 @@ function PokemonAbilitiesItem({ pokemonAbility }: Props) {
   const { data } = useQuery({
     queryKey: ["pokemonAbilityDetails"],
     queryFn: () => getPokemonAbilityInfo(pokemonAbility.ability.url),
-  }); // TODO pokemonAbilityDetails as modal/dynamic route  ?
+  });
 
   return (
     <Link href={`${(pokemonName as { name?: string })?.name}/${name}`}>
