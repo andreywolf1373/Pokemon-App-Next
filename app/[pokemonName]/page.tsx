@@ -20,7 +20,7 @@ export default function PokemonPage({
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["pokemonData"],
+    queryKey: ["pokemonData", pokemonName], // queryKey: ["pokemonData", pokemonName], разобратся // React Hook Forms // Pagination 20 pokemon per page // Docker
     queryFn: () => getPokemon(pokemonName),
   });
 

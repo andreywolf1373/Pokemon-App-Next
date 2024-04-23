@@ -16,3 +16,7 @@ export default function Home() {
 
   return <PokemonGrid pokemonList={pokemonList} isLoading={isLoading} />;
 }
+
+// add fix width
+// add pagination
+// debouns search watch info or add submit

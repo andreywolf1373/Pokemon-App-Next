@@ -15,10 +15,10 @@ function PokemonAbilitiesItem({ pokemonAbility }: Props) {
   const queryClient = useQueryClient();
   const pokemonName = queryClient.getQueryData(["pokemonData"]);
 
-  const { data } = useQuery({
-    queryKey: ["pokemonAbilityDetails"],
-    queryFn: () => getPokemonAbilityInfo(pokemonAbility.ability.url),
-  });
+  // const { data } = useQuery({
+  //   queryKey: ["pokemonAbilityDetails"],
+  //   queryFn: () => getPokemonAbilityInfo(pokemonAbility.ability.url),
+  // });
 
   return (
     <Link href={`${(pokemonName as { name?: string })?.name}/${name}`}>
