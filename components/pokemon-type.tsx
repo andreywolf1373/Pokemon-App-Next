@@ -2,7 +2,6 @@ import { getPokemonInfo } from "@/lib/pokemonAPI";
 import { PokemonSpecies, PokemonTypes } from "@/lib/types";
 import { changeToUpperCase } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
-import Loader from "@/components/ui/Loader";
 
 interface Props {
   pokemonItem: PokemonTypes;
