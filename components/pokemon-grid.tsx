@@ -31,7 +31,7 @@ export function PokemonGrid() {
   const onSumbit = function (data: any) {
     setSearchText(data.searchText);
   };
-  const filteredPokemonList = pokemonList.filter((pokemon: Pokemon) =>
+  const filteredPokemonList = pokemonList?.filter((pokemon: Pokemon) =>
     pokemon.name.toLowerCase().includes(searchText.toLowerCase())
   );
 
@@ -68,7 +68,7 @@ export function PokemonGrid() {
       </div>
 
       <div className="grid text-center grid-cols-6 xl:grid-cols-4 md:grid-cols-2">
-        {filteredPokemonList.map((pokemon: Pokemon) => {
+        {filteredPokemonList?.map((pokemon: Pokemon) => {
           return (
             <PokemonCard name={pokemon.name} key={pokemon.name + "Card"} />
           );
