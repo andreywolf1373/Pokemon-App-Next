@@ -1,7 +1,7 @@
 const POKEMON_API = "https://pokeapi.co/api/v2/";
 
 export async function getPokemonList(skip: number) {
-  const response = await fetch(POKEMON_API + `pokemon?limit=20&offset=${skip}`);
+  const response = await fetch(POKEMON_API + `pokemon?limit=24&offset=${skip}`);
   const data = await response.json();
   return data.results;
 }

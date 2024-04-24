@@ -8,13 +8,42 @@ module.exports = {
     "./src/**/*.{ts,tsx}",
   ],
   theme: {
+    screens: {
+      // prettier-ignore
+      '2xl': {'max': '1535px'},
+      // => @media (max-width: 1535px) { ... }
+      // prettier-ignore
+      'xl': {'max': '1279px'},
+      // => @media (max-width: 1279px) { ... }
+      // prettier-ignore
+      'lg': {'max': '1023px'},
+      // => @media (max-width: 1023px) { ... }
+      // prettier-ignore
+      'md': {'max': '767px'},
+      // => @media (max-width: 767px) { ... }
+      // prettier-ignore
+      'sm': {'max': '639px'},
+      // => @media (max-width: 639px) { ... }
+    },
     container: {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1400px",
         // prettier-ignore
-        "xl": "1280px",
+        '2xl': {'max': '1535px'},
+        // => @media (max-width: 1535px) { ... }
+        // prettier-ignore
+        'xl': {'max': '1279px'},
+        // => @media (max-width: 1279px) { ... }
+        // prettier-ignore
+        'lg': {'max': '1023px'},
+        // => @media (max-width: 1023px) { ... }
+        // prettier-ignore
+        'md': {'max': '767px'},
+        // => @media (max-width: 767px) { ... }
+        // prettier-ignore
+        'sm': {'max': '639px'},
+        // => @media (max-width: 639px) { ... }
       },
     },
     extend: {
