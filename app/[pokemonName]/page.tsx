@@ -24,7 +24,7 @@ export default function PokemonPage({
     queryFn: () => getPokemon(pokemonName),
   });
 
-  if (!pokemonObject) return <Loader />;
+  if (isLoading) return <Loader />;
 
   if (isError) return <h2> There is an error fetching data! </h2>;
 
