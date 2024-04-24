@@ -12,7 +12,7 @@ export default function Home() {
     queryFn: getPokemonList,
   });
 
-  if (!pokemonList) return <Loader />;
+  if (isLoading) return <Loader />;
 
   return <PokemonGrid pokemonList={pokemonList} isLoading={isLoading} />;
 }
