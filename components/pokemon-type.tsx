@@ -1,4 +1,4 @@
-import { getPokemonSpecies } from "@/lib/pokemonAPI";
+import { getPokemonInfo } from "@/lib/pokemonAPI";
 import { PokemonSpecies, PokemonTypes } from "@/lib/types";
 import { changeToUpperCase } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
@@ -11,11 +11,10 @@ interface Props {
 
 function PokemonType({ pokemonItem, pokemonObject }: Props) {
   const { data: pokemonSpicies } = useQuery({
-    queryKey: ["pokemonType"],
-    queryFn: () => getPokemonSpecies(pokemonObject.species.url),
+    queryKey: ["pokemonType", pokemonItem],
+    queryFn: () => getPokemonInfo(pokemonObject.species.url),
   });
 
-  if (!pokemonSpicies) return <Loader />;
   const pokemonColor = pokemonSpicies?.color.name;
 
   return (

@@ -12,13 +12,7 @@ export async function getPokemon(url: string) {
   return data;
 }
 
-export async function getPokemonAbilityInfo(url: string) {
-  const response = await fetch(url);
-  const data = await response.json();
-  return data;
-}
-
-export async function getPokemonSpecies(url: string) {
+export async function getPokemonInfo(url: string) {
   const response = await fetch(url);
   const data = await response.json();
   return data;

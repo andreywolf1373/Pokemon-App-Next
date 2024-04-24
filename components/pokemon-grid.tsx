@@ -5,17 +5,24 @@ import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { Pokemon, PokemonGridProps } from "@/lib/types";
 import Loader from "@/components/ui/Loader";
+import { getPokemonList } from "@/lib/pokemonAPI";
+import { useQuery } from "@tanstack/react-query";
 
-export function PokemonGrid({ pokemonList, isLoading }: PokemonGridProps) {
+export function PokemonGrid() {
   const [searchText, setSearchText] = useState("");
+
+  const [page, setPage] = useState(0);
+  const { data: pokemonList, isLoading } = useQuery({
+    queryKey: ["pokemonList", page, { keepPreviousData: true }],
+    queryFn: () => getPokemonList(page),
+  });
+  if (isLoading) return <Loader />;
 
   const searchFilter = (pokemonList: Pokemon[]) => {
     return pokemonList.filter((pokemon: Pokemon) =>
       pokemon.name.toLowerCase().includes(searchText.toLowerCase())
     );
   };
-  if (isLoading) return <Loader />;
-
   const filteredPokemonList = searchFilter(pokemonList);
 
   return (
@@ -42,6 +49,22 @@ export function PokemonGrid({ pokemonList, isLoading }: PokemonGridProps) {
             <PokemonCard name={pokemon.name} key={pokemon.name + "Card"} />
           );
         })}
+      </div>
+
+      <div className="flex gap-8">
+        <button
+          className="group rounded-lg border border-white m-3 px-5 py-1"
+          onClick={() => setPage(page - 30)}
+          disabled={!page}
+        >
+          Prev
+        </button>
+        <button
+          className="group rounded-lg border border-white m-3 px-5 py-1"
+          onClick={() => setPage(page + 30)}
+        >
+          Next
+        </button>
       </div>
     </>
   );

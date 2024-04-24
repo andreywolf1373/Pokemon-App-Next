@@ -1,9 +1,8 @@
 import { PokemonImageInterface } from "@/lib/types";
+import { useQueryClient } from "@tanstack/react-query";
 import Image from "next/image";
 
 export function PokemonImage({ image, name }: PokemonImageInterface) {
-  if (!image || !name) return;
-
   return (
     <Image
       src={image}
@@ -11,7 +10,7 @@ export function PokemonImage({ image, name }: PokemonImageInterface) {
       priority
       width={500}
       height={500}
-      className="transition-opacity opacity-0 duration-[2s]"
+      className={`transition-opacity opacity-0 duration-[2s] `}
       onLoadingComplete={(image) => image.classList.remove("opacity-0")}
     />
   );
