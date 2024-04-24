@@ -1,5 +1,5 @@
 "use client";
-import { getPokemon, getPokemonSpecies } from "@/lib/pokemonAPI";
+import { getPokemon } from "@/lib/pokemonAPI";
 import { PokemonImage } from "@/components/pokemon-image";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "@/components/ui/Loader";
@@ -54,7 +54,6 @@ export default function PokemonPage({
       </h3>
       <h3>Weight: {pokemonObject.weight}</h3>
       <div className="flex-col">
-        {isLoading && <Loader />}
         {pokemonObject?.stats?.map((statObject: PokemonStat) => (
           <PokemonStats statObject={statObject} key={statObject.stat.name} />
         ))}
